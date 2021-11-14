@@ -15,7 +15,6 @@ extension DropDown {
 	public class func setupDefaultAppearance() {
 		let appearance = DropDown.appearance()
 
-		appearance.cellHeight = DPDConstant.UI.RowHeight
 		appearance.backgroundColor = DPDConstant.UI.BackgroundColor
 		appearance.selectionBackgroundColor = DPDConstant.UI.SelectionBackgroundColor
 		appearance.separatorColor = DPDConstant.UI.SeparatorColor

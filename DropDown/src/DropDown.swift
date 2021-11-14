@@ -178,10 +178,7 @@ public final class DropDown: UIView {
 	fileprivate var yConstraint: NSLayoutConstraint!
 
 	//MARK: Appearance
-	@objc public dynamic var cellHeight = DPDConstant.UI.RowHeight {
-		willSet { tableView.rowHeight = newValue }
-		didSet { reloadAllComponents() }
-	}
+	@objc fileprivate dynamic let cellHeight = UITableView.automaticDimension
 
 	@objc fileprivate dynamic var tableViewBackgroundColor = DPDConstant.UI.BackgroundColor {
 		willSet {
@@ -1030,7 +1027,7 @@ extension DropDown {
 
 	/// Returns the height needed to display all cells.
 	fileprivate var tableHeight: CGFloat {
-		return tableView.rowHeight * CGFloat(dataSource.count)
+    return tableView.contentSize.height
 	}
 
     //MARK: Objective-C methods for converting the Swift type Index
