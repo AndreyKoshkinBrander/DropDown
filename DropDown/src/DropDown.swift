@@ -1116,6 +1116,8 @@ extension DropDown: UITableViewDataSource, UITableViewDelegate {
                 return
             }
         }
+    
+        guard !selectedRowIndices.contains(selectedRowIndex) else { return }
         
         // Perform single selection logic
         selectedRowIndices.removeAll()
