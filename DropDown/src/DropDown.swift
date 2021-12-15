@@ -565,13 +565,6 @@ extension DropDown {
 
 		let layout = computeLayout()
 
-		if !layout.canBeDisplayed {
-			super.updateConstraints()
-			hide()
-
-			return
-		}
-
 		xConstraint.constant = layout.x
 		yConstraint.constant = layout.y
 		widthConstraint.constant = layout.width
@@ -702,7 +695,6 @@ extension DropDown {
 			}
 		}
 		
-		constraintWidthToFittingSizeIfNecessary(layout: &layout)
 		constraintWidthToBoundsIfNecessary(layout: &layout, in: window)
 		
 		let visibleHeight = tableHeight - layout.offscreenHeight
@@ -857,11 +849,6 @@ extension DropDown {
 
 		let layout = computeLayout()
 
-		if !layout.canBeDisplayed {
-			hide()
-			return (layout.canBeDisplayed, layout.offscreenHeight)
-		}
-
 		isHidden = false
         
         if anchorPoint != nil {
@@ -873,17 +860,8 @@ extension DropDown {
         } else {
             tableViewContainer.transform = downScaleTransform
         }
-
-		layoutIfNeeded()
-
-		UIView.animate(
-			withDuration: animationduration,
-			delay: 0,
-			options: animationEntranceOptions,
-			animations: { [weak self] in
-				self?.setShowedState()
-			},
-			completion: nil)
+      
+    setShowedState()
 
 		accessibilityViewIsModal = true
 		UIAccessibility.post(notification: .screenChanged, argument: self)
