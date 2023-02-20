@@ -43,6 +43,13 @@ internal struct DPDConstant {
 			static let Radius: CGFloat = 8
 
 		}
+    
+    struct Border {
+      
+      static let Width: CGFloat = .zero
+      static let Color = UIColor.clear
+      
+    }
 
 	}
 
