@@ -306,7 +306,7 @@ public final class DropDown: UIView {
   Changing the border color automatically reloads the drop down.
   */
   @objc public dynamic var borderColor = DPDConstant.UI.Border.Color {
-    willSet { tableViewContainer.layer.borderColor = newValue }
+    willSet { tableViewContainer.layer.borderColor = newValue.cgColor }
     didSet { reloadAllComponents() }
   }
 
