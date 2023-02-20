@@ -178,7 +178,10 @@ public final class DropDown: UIView {
 	fileprivate var yConstraint: NSLayoutConstraint!
 
 	//MARK: Appearance
-	@objc fileprivate dynamic let cellHeight = UITableView.automaticDimension
+    @objc public dynamic var cellHeight = UITableView.automaticDimension {
+        willSet { tableView.rowHeight = newValue }
+        didSet { reloadAllComponents() }
+    }
 
 	@objc fileprivate dynamic var tableViewBackgroundColor = DPDConstant.UI.BackgroundColor {
 		willSet {
